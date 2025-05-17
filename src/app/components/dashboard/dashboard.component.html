@@ -1,0 +1,12 @@
+<div class="container">
+    <mat-form-field appearance="fill">
+        <mat-label>Select User Role</mat-label>
+        <mat-select [(value)]="selectedRole">
+            <mat-option *ngFor="let role of userRoles" [value]="role.value">
+                {{ role.viewValue }}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <p>Selected Role: {{ selectedRole }}</p>
+</div>
