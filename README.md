@@ -6,6 +6,10 @@
 To start the project, run the following command:
 
 ```bash
+npm install
+```
+
+```bash
 npm run start
 ```
 
