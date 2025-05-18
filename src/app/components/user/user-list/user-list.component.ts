@@ -34,7 +34,9 @@ export class UserListComponent {
       },
       error: (err) => {
         if (err.status == 0) {
-          this.notify.error('Please check your internet connection or make sure the JSON server is running.')
+          this.notify.error(
+            'Please check your internet connection or make sure the JSON server is running.'
+          );
         } else {
           this.notify.error(err.message);
         }

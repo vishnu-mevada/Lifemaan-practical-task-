@@ -4,12 +4,7 @@ import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MaterialModule } from '../material.module';
 import { ToastrModule } from 'ngx-toastr';
-import {
-  ErrorCodeComponent,
-  HeaderComponent,
-  SidebarComponent,
-  GlobalFormComponent,
-} from './components';
+import { ErrorCodeComponent, GlobalFormComponent } from './components';
 import { HttpClientModule } from '@angular/common/http';
 
 const MODULES: any[] = [
@@ -25,12 +20,7 @@ const MODULES: any[] = [
     preventDuplicates: true,
   }),
 ];
-const COMPONENTS: any[] = [
-  ErrorCodeComponent,
-  HeaderComponent,
-  SidebarComponent,
-  GlobalFormComponent,
-];
+const COMPONENTS: any[] = [ErrorCodeComponent, GlobalFormComponent];
 const DIRECTIVES: any[] = [];
 const PIPES: any[] = [];
 

@@ -25,9 +25,9 @@ import { RoleGuard } from './shared/utils/role-guard.guard';
     BrowserModule,
     AppRoutingModule,
     NoopAnimationsModule,
-    SharedModule
+    SharedModule,
   ],
   providers: [RoleGuard],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

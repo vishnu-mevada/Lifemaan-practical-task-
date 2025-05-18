@@ -10,7 +10,7 @@ export class DashboardComponent {
   selectedRole = '';
 
   constructor(private roleService: RoleService) {
-    this.roleService.currentRole$.subscribe(role => {
+    this.roleService.currentRole$.subscribe((role) => {
       this.selectedRole = role ?? 'admin';
     });
   }

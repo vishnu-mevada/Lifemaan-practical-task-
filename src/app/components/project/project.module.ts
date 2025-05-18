@@ -11,12 +11,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
   declarations: [
     UpdateProjectComponent,
     AddProjectComponent,
-    ProjectListComponent
+    ProjectListComponent,
   ],
-  imports: [
-    CommonModule,
-    ProjectRoutingModule,
-    SharedModule
-  ]
+  imports: [CommonModule, ProjectRoutingModule, SharedModule],
 })
-export class ProjectModule { }
+export class ProjectModule {}

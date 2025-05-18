@@ -11,7 +11,11 @@ import { ProjectService } from 'src/app/shared/services/project.service';
   styleUrls: ['./add-project.component.scss'],
 })
 export class AddProjectComponent {
-  constructor(private projectService: ProjectService, private router: Router, private notify: NotificationService) {}
+  constructor(
+    private projectService: ProjectService,
+    private router: Router,
+    private notify: NotificationService
+  ) {}
 
   projectFields: FormField[] = [
     { name: 'id', readonly: true },

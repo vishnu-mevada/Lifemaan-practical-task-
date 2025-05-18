@@ -11,7 +11,11 @@ import { ReportService } from 'src/app/shared/services/report.service';
   styleUrls: ['./add-report.component.scss'],
 })
 export class AddReportComponent {
-  constructor(private reportService: ReportService, private router: Router, private notify: NotificationService) {}
+  constructor(
+    private reportService: ReportService,
+    private router: Router,
+    private notify: NotificationService
+  ) {}
 
   reportFields: FormField[] = [
     { name: 'id', readonly: true },

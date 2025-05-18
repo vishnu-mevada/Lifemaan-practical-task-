@@ -28,7 +28,7 @@
                     <button mat-icon-button color="primary" *ngIf="canAdd()" routerLink="/user/add">
                         <mat-icon>add</mat-icon>
                     </button>
-                    <button mat-icon-button color="primary" *ngIf="canEdit()"[routerLink]="['/user/update', user.id]">
+                    <button mat-icon-button color="primary" *ngIf="canEdit()" [routerLink]="['/user/update', user.id]">
                         <mat-icon>edit</mat-icon>
                     </button>
                     <button mat-icon-button color="warn" *ngIf="canDelete()" (click)="deleteUser(user)">

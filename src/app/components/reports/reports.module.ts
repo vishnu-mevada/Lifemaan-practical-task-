@@ -7,17 +7,12 @@ import { UpdateReportComponent } from './update-report/update-report.component';
 import { ReportListComponent } from './report-list/report-list.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 
-
 @NgModule({
   declarations: [
     AddReportComponent,
     UpdateReportComponent,
-    ReportListComponent
+    ReportListComponent,
   ],
-  imports: [
-    CommonModule,
-    ReportsRoutingModule,
-    SharedModule
-  ]
+  imports: [CommonModule, ReportsRoutingModule, SharedModule],
 })
-export class ReportsModule { }
+export class ReportsModule {}
