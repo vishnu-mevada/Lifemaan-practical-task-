@@ -28,8 +28,17 @@ export class UserListComponent {
   }
 
   loadUsers() {
-    this.userService.getUsers().subscribe((users) => {
-      this.dataSource.data = users;
+    this.userService.getUsers().subscribe({
+      next: (users) => {
+        this.dataSource.data = users;
+      },
+      error: (err) => {
+        if (err.status == 0) {
+          this.notify.error('Please check your internet connection or make sure the JSON server is running.')
+        } else {
+          this.notify.error(err.message);
+        }
+      },
     });
   }
 

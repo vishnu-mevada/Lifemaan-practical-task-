@@ -33,8 +33,17 @@ export class ReportListComponent {
   }
 
   loadReports() {
-    this.reportService.getReports().subscribe((reports) => {
-      this.dataSource.data = reports;
+    this.reportService.getReports().subscribe({
+      next: (reports) => {
+        this.dataSource.data = reports;
+      },
+      error: (err) => {
+        if (err.status == 0) {
+          this.notify.error('Please check your internet connection or make sure the JSON server is running.')
+        } else {
+          this.notify.error(err.message);
+        }
+      },
     });
   }
 

@@ -33,8 +33,17 @@ export class ProjectListComponent {
   }
 
   loadProjects() {
-    this.projectService.getProjects().subscribe((projects) => {
-      this.dataSource.data = projects;
+    this.projectService.getProjects().subscribe({
+      next: (projects) => {
+        this.dataSource.data = projects;
+      },
+      error: (err) => {
+        if (err.status == 0) {
+          this.notify.error('Please check your internet connection or make sure the JSON server is running.')
+        } else {
+          this.notify.error(err.message);
+        }
+      },
     });
   }
 
