@@ -1,1 +1,1 @@
-<p>update-report works!</p>
+<app-global-form *ngIf="reportFields.length" [fields]="reportFields" (formSubmitted)="handleSubmit($event)"></app-global-form>

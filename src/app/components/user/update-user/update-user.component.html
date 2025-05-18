@@ -1,1 +1,1 @@
-<p>update-user works!</p>
+<app-global-form *ngIf="userFields.length" [fields]="userFields" (formSubmitted)="handleSubmit($event)"></app-global-form>

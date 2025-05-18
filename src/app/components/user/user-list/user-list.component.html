@@ -6,7 +6,7 @@
             <!-- ID Column -->
             <ng-container matColumnDef="id">
                 <th mat-header-cell *matHeaderCellDef> ID </th>
-                <td mat-cell *matCellDef="let user"> {{ user.id }} </td>
+                <td mat-cell *matCellDef="let user"> {{ user.id | slice:0:3 }} </td>
             </ng-container>
 
             <!-- Name Column -->
@@ -28,7 +28,7 @@
                     <button mat-icon-button color="primary" *ngIf="canAdd()" routerLink="/user/add">
                         <mat-icon>add</mat-icon>
                     </button>
-                    <button mat-icon-button color="primary" *ngIf="canEdit()" (click)="editUser(user)">
+                    <button mat-icon-button color="primary" *ngIf="canEdit()"[routerLink]="['/user/update', user.id]">
                         <mat-icon>edit</mat-icon>
                     </button>
                     <button mat-icon-button color="warn" *ngIf="canDelete()" (click)="deleteUser(user)">

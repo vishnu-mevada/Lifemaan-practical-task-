@@ -12,12 +12,16 @@ export class ProjectService {
     return this.http.get<any[]>(this.apiUrl);
   }
 
-  addProject(user: any): Observable<any> {
-    return this.http.post(this.apiUrl, user);
+  getProjectById(id: number): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/${id}`);
   }
 
-  updateProject(user: any): Observable<any> {
-    return this.http.put(`${this.apiUrl}/${user.id}`, user);
+  addProject(project: any): Observable<any> {
+    return this.http.post(this.apiUrl, project);
+  }
+
+  updateProject(project: any): Observable<any> {
+    return this.http.put(`${this.apiUrl}/${project.id}`, project);
   }
 
   deleteProject(id: number): Observable<any> {

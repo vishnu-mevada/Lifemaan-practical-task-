@@ -31,11 +31,6 @@ export class UserListComponent {
     });
   }
 
-  editUser(user: any) {
-    alert(`Edit user ${user.name}`);
-    // Open a dialog or route to edit page
-  }
-
   deleteUser(user: any) {
     if (confirm(`Delete user ${user.name}?`)) {
       this.userService.deleteUser(user.id).subscribe(() => {

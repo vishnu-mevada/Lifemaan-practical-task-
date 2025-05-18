@@ -12,12 +12,16 @@ export class ReportService {
     return this.http.get<any[]>(this.apiUrl);
   }
 
-  addReport(user: any): Observable<any> {
-    return this.http.post(this.apiUrl, user);
+  getReportById(id: number): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/${id}`);
   }
 
-  updateReport(user: any): Observable<any> {
-    return this.http.put(`${this.apiUrl}/${user.id}`, user);
+  addReport(report: any): Observable<any> {
+    return this.http.post(this.apiUrl, report);
+  }
+
+  updateReport(report: any): Observable<any> {
+    return this.http.put(`${this.apiUrl}/${report.id}`, report);
   }
 
   deleteReport(id: number): Observable<any> {

@@ -1,1 +1,1 @@
-<p>update-project works!</p>
+<app-global-form *ngIf="projectFields.length" [fields]="projectFields" (formSubmitted)="handleSubmit($event)"></app-global-form>

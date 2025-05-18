@@ -36,10 +36,6 @@ export class ProjectListComponent {
     });
   }
 
-  editProject(project: any) {
-    alert(`Edit project "${project.name}"`);
-  }
-
   deleteProject(project: any) {
     if (confirm(`Delete project "${project.name}"?`)) {
       this.projectService.deleteProject(project.id).subscribe(() => {
