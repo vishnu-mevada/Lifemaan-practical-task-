@@ -1,27 +1,65 @@
-# InterviewTask
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.0.
+# Angular Role-Based Authentication Project
 
-## Development server
+## 🚀 Getting Started
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+To start the project, run the following command:
 
-## Code scaffolding
+```bash
+npm run start
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+This will start both the Angular application and the `json-server` to serve the database.
 
-## Build
+Alternatively, you can start them manually:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+```bash
+ng serve
+json-server --watch db.json --port 3000
+```
 
-## Running unit tests
+## 🔐 Role-Based Authentication
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+This project implements role-based authentication for route and action-level access control. There are three user roles:
 
-## Running end-to-end tests
+- **Admin**: Full access to all routes and actions (Add, Edit, Delete)
+- **Editor**: Cannot access the **Users** route, but can perform all actions on other routes
+- **Viewer**: Read-only access; cannot access the **Users** route or perform any actions
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+A custom `RoleGuard` is implemented to prevent unauthorized access. Even if a user manually enters a restricted URL, they will be redirected to a **403 (Forbidden)** page.
 
-## Further help
+If a route does not exist, users are redirected to a **404 (Not Found)** page.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## 🧭 Navigation
+
+This project includes six main navigation menus:
+
+- Home
+- Users
+- Reports
+- Projects
+- About Us
+- Contact Us
+
+> **Note:** The **Contact Us** route is included to demonstrate the 404 error handling. No actual component is implemented for this route.
+
+## ✅ Features
+
+- Role-based route and action control using `RoleGuard`
+- Route redirection for unauthorized (403) and unknown (404) routes
+- Error handling for all `GET` requests with user notifications
+- User-friendly notifications using `ngx-toastr`
+- Backend simulation using `json-server` for CRUD operations
+- UUID generation for new entries using `uuid()`
+- Module-based architecture
+- Standalone components and a shared global form
+- Role persistence using `localStorage` (survives hard reloads)
+- Developed with **Angular 16** and **Angular Material 16**
+
+## 📦 Dependencies
+
+- Angular 16
+- Angular Material 16
+- ngx-toastr
+- json-server
+- uuid
