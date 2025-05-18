@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
+import { NotificationService } from 'src/app/shared/services/notification.service';
 import { RoleService } from 'src/app/shared/services/role.service';
 import { UserService } from 'src/app/shared/services/user.service';
 
@@ -15,7 +16,8 @@ export class UserListComponent {
 
   constructor(
     private userService: UserService,
-    private roleService: RoleService
+    private roleService: RoleService,
+    private notify: NotificationService
   ) {}
 
   ngOnInit(): void {
@@ -34,6 +36,7 @@ export class UserListComponent {
   deleteUser(user: any) {
     if (confirm(`Delete user ${user.name}?`)) {
       this.userService.deleteUser(user.id).subscribe(() => {
+        this.notify.success('User deleted successfully');
         this.loadUsers();
       });
     }

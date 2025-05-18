@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
+import { NotificationService } from 'src/app/shared/services/notification.service';
 import { ReportService } from 'src/app/shared/services/report.service';
 import { RoleService } from 'src/app/shared/services/role.service';
 
@@ -16,7 +17,8 @@ export class ReportListComponent {
 
   constructor(
     private reportService: ReportService,
-    private roleService: RoleService
+    private roleService: RoleService,
+    private notify: NotificationService
   ) {}
 
   ngOnInit(): void {
@@ -36,13 +38,10 @@ export class ReportListComponent {
     });
   }
 
-  editReport(report: any) {
-    alert(`Edit report "${report.title}"`);
-  }
-
   deleteReport(report: any) {
     if (confirm(`Delete report "${report.title}"?`)) {
       this.reportService.deleteReport(report.id).subscribe(() => {
+        this.notify.success('Report deleted successfully');
         this.loadReports();
       });
     }

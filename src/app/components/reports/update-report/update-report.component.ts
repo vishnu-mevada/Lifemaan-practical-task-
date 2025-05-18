@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormField } from 'src/app/shared';
+import { NotificationService } from 'src/app/shared/services/notification.service';
 import { ReportService } from 'src/app/shared/services/report.service';
 
 @Component({
@@ -17,7 +18,8 @@ export class UpdateReportComponent {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private reportService: ReportService
+    private reportService: ReportService,
+    private notify: NotificationService
   ) {
     this.reportId = this.route.snapshot.paramMap.get('id');
   }
@@ -43,6 +45,7 @@ export class UpdateReportComponent {
 
   handleSubmit(formData: any) {
     this.reportService.updateReport(formData).subscribe((response) => {
+      this.notify.success('Report updated successfully');
       this.router.navigate(['/report']);
     });
   }

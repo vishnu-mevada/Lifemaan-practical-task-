@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormField } from 'src/app/shared';
+import { NotificationService } from 'src/app/shared/services/notification.service';
 import { UserService } from 'src/app/shared/services/user.service';
 
 @Component({
@@ -14,7 +15,7 @@ export class UpdateUserComponent {
   user: any = [];
   userFields: FormField[] = [];
 
-  constructor(private route: ActivatedRoute, private router: Router, private userService: UserService) {
+  constructor(private route: ActivatedRoute, private router: Router, private userService: UserService, private notify: NotificationService) {
     this.userId =  this.route.snapshot.paramMap.get('id');
   }
 
@@ -39,6 +40,7 @@ export class UpdateUserComponent {
 
    handleSubmit(formData: any) {
     this.userService.updateUser(formData).subscribe(response => {
+      this.notify.success('User updated successfully');
       this.router.navigate(['/user']);
     });
   }

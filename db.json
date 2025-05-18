@@ -9,11 +9,6 @@
       "id": "2",
       "name": "Bob",
       "email": "bob@example.com"
-    },
-    {
-      "id": "f9d6f7e0-6cb4-49a4-90a8-ca6ee0a03c8d",
-      "name": "Vishnu Mevada",
-      "email": "vishnu@gmail.com"
     }
   ],
   "reports": [
@@ -28,11 +23,6 @@
       "title": "Inventory Report",
       "content": "Warehouse status",
       "projectId": 2
-    },
-    {
-      "id": "5dc014eb-325b-4191-bdf1-1d204f9e3b1e",
-      "title": "New Report Updated",
-      "content": "New"
     }
   ],
   "projects": [
@@ -45,11 +35,6 @@
       "id": "2",
       "name": "Project Beta",
       "status": "Completed"
-    },
-    {
-      "id": "5413e9d5-3252-4578-83ab-ec7d41156b82",
-      "name": "Demo Project",
-      "status": "Pending"
     }
   ]
 }

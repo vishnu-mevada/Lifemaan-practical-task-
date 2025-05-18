@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormField } from 'src/app/shared';
+import { NotificationService } from 'src/app/shared/services/notification.service';
 import { ProjectService } from 'src/app/shared/services/project.service';
 
 @Component({
@@ -17,7 +18,8 @@ export class UpdateProjectComponent {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private projectService: ProjectService
+    private projectService: ProjectService,
+    private notify: NotificationService
   ) {
     this.projectId = this.route.snapshot.paramMap.get('id');
   }
@@ -43,6 +45,7 @@ export class UpdateProjectComponent {
 
   handleSubmit(formData: any) {
     this.projectService.updateProject(formData).subscribe((response) => {
+      this.notify.success('Project updated successfully');
       this.router.navigate(['/project']);
     });
   }

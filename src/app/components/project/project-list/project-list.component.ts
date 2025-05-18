@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
+import { NotificationService } from 'src/app/shared/services/notification.service';
 import { ProjectService } from 'src/app/shared/services/project.service';
 import { RoleService } from 'src/app/shared/services/role.service';
 
@@ -17,6 +18,7 @@ export class ProjectListComponent {
   constructor(
     private projectService: ProjectService,
     private roleService: RoleService,
+    private notify: NotificationService
   ) {}
 
   ngOnInit(): void {
@@ -39,6 +41,7 @@ export class ProjectListComponent {
   deleteProject(project: any) {
     if (confirm(`Delete project "${project.name}"?`)) {
       this.projectService.deleteProject(project.id).subscribe(() => {
+        this.notify.success('Project deleted successfully');
         this.loadProjects();
       });
     }
