@@ -1,12 +1,13 @@
 <div class="container">
-    <mat-form-field appearance="fill">
-        <mat-label>Select User Role</mat-label>
-        <mat-select [(value)]="selectedRole">
-            <mat-option *ngFor="let role of userRoles" [value]="role.value">
-                {{ role.viewValue }}
-            </mat-option>
-        </mat-select>
-    </mat-form-field>
-
-    <p>Selected Role: {{ selectedRole }}</p>
+  <mat-card class="mat-elevation-z2">
+    <mat-card-header>
+      <mat-card-title>Dashboard</mat-card-title>
+      <mat-card-subtitle>Welcome to the Admin Panel</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <p><strong>Selected Role:</strong> {{ selectedRole }}</p>
+      <p>This dashboard allows you to view and manage different modules based on your access role.</p>
+      <p>Use the sidebar to navigate through reports, users, and projects.</p>
+    </mat-card-content>
+  </mat-card>
 </div>

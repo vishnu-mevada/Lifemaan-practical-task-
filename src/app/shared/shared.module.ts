@@ -5,6 +5,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MaterialModule } from '../material.module';
 import { ToastrModule } from 'ngx-toastr';
 import { ErrorCodeComponent, HeaderComponent, SidebarComponent } from './components';
+import { HttpClientModule } from '@angular/common/http';
 
 const MODULES: any[] = [
   CommonModule,
@@ -13,6 +14,7 @@ const MODULES: any[] = [
   FormsModule,
   MaterialModule,
   ToastrModule,
+  HttpClientModule
 ];
 const COMPONENTS: any[] = [
   ErrorCodeComponent,

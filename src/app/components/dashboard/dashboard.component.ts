@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { RoleService } from 'src/app/shared/services/role.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -6,11 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent {
-  selectedRole: string = 'Admin';
+  selectedRole = '';
 
-  userRoles = [
-    { value: 'admin', viewValue: 'Admin' },
-    { value: 'editor', viewValue: 'Editor' },
-    { value: 'viewer', viewValue: 'Viewer' },
-  ];
+  constructor(private roleService: RoleService) {
+    this.roleService.currentRole$.subscribe(role => {
+      this.selectedRole = role ?? 'admin';
+    });
+  }
 }

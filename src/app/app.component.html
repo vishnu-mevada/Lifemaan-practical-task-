@@ -9,24 +9,21 @@
 
 <mat-drawer-container autosize>
     <mat-drawer #drawer opened="true" mode="side" position="start">
+
+        <div>
+            <mat-form-field appearance="fill" subscriptSizing="dynamic">
+                <mat-label>Select Role</mat-label>
+                <mat-select [value]="selectedRole" (selectionChange)="onRoleChange($event)">
+                    <mat-option *ngFor="let role of roles" [value]="role">{{ role }}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
         <mat-nav-list>
-            <mat-list-item routerLink="">
-                <button mat-button><mat-icon>home</mat-icon> Home</button>
-            </mat-list-item>
-            <mat-list-item routerLink="user">
-                <button mat-button><mat-icon>supervised_user_circle</mat-icon> Users</button>
-            </mat-list-item>
-            <mat-list-item routerLink="report">
-                <button mat-button><mat-icon>table</mat-icon> Reports</button>
-            </mat-list-item>
-            <mat-list-item routerLink="project">
-                <button mat-button><mat-icon>perm_media</mat-icon> Projects</button>
-            </mat-list-item>
-            <mat-list-item routerLink="about">
-                <button mat-button><mat-icon>help</mat-icon> About Us</button>
-            </mat-list-item>
-            <mat-list-item routerLink="contact">
-                <button mat-button><mat-icon>call</mat-icon> Contact Us</button>
+            <mat-list-item *ngFor="let route of accessibleRoutes" [routerLink]="route.path">
+                <button mat-button>
+                    <mat-icon>{{ route.icon }}</mat-icon> {{ route.label }}
+                </button>
             </mat-list-item>
         </mat-nav-list>
     </mat-drawer>

@@ -1,0 +1,19 @@
+{
+  "users": [
+    { "id": 1, "name": "Alice", "email": "alice@example.com" },
+    { "id": 2, "name": "Bob", "email": "bob@example.com" }
+  ],
+  "reports": [
+    { "id": 1, "title": "Sales Report", "content": "Q1 Sales", "projectId": 1 },
+    {
+      "id": 2,
+      "title": "Inventory Report",
+      "content": "Warehouse status",
+      "projectId": 2
+    }
+  ],
+  "projects": [
+    { "id": 1, "name": "Project Alpha", "status": "Active" },
+    { "id": 2, "name": "Project Beta", "status": "Completed" }
+  ]
+}

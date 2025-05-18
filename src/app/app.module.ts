@@ -9,6 +9,8 @@ import { Error404Component } from './components/sessions/404.component';
 import { Error500Component } from './components/sessions/500.component';
 import { SharedModule } from './shared/shared.module';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { AboutComponent } from './components/about/about.component';
+import { RoleGuard } from './shared/utils/role-guard.guard';
 
 @NgModule({
   declarations: [
@@ -17,6 +19,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     Error404Component,
     Error500Component,
     DashboardComponent,
+    AboutComponent,
   ],
   imports: [
     BrowserModule,
@@ -24,7 +27,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     NoopAnimationsModule,
     SharedModule
   ],
-  providers: [],
+  providers: [RoleGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

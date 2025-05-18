@@ -4,6 +4,8 @@ import { Error403Component } from './components/sessions/403.component';
 import { Error404Component } from './components/sessions/404.component';
 import { Error500Component } from './components/sessions/500.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { AboutComponent } from './components/about/about.component';
+import { RoleGuard } from './shared/utils/role-guard.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
@@ -19,6 +21,8 @@ const routes: Routes = [
     path: 'user',
     loadChildren: () =>
       import('./components/user/user.module').then((m) => m.UserModule),
+    canActivate: [RoleGuard],
+    data: { roles: ['admin'] },
   },
   {
     path: 'project',
@@ -27,9 +31,10 @@ const routes: Routes = [
         (m) => m.ProjectModule
       ),
   },
-  { path: 'admin/403', component: Error403Component },
+  { path: 'about', component: AboutComponent },
+  { path: '403', component: Error403Component },
   { path: '**', component: Error404Component },
-  { path: 'admin/500', component: Error500Component },
+  { path: '500', component: Error500Component },
 ];
 
 @NgModule({
